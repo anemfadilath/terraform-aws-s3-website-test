@@ -40,6 +40,6 @@ run "website_is_running"{
 
   assert{
     condition=data.http.index.status_code==200
-    error_message= "website responding with http status ${data.http.index.status_code}
+    error_message= "website responding with http status ${data.http.index.status_code}"
   }
 }
