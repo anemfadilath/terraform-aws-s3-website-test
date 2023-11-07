@@ -30,7 +30,7 @@ run "create_bucket" {
   }
 }
 run "website_is_running"{
-  cammand= plan
+  command= plan
   module{
     source= "./tests/final
   }
