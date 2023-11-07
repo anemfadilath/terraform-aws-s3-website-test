@@ -29,17 +29,19 @@ run "create_bucket" {
     error_message = "Invalid eTag for error.html"
   }
 }
-run "website_is_running"{
-  command= plan
-  module{
-    source= "./tests/final"
-  }
-  variables{
-    endpoint= run.create_bucket.website_endpoint
+run "website_is_running" {
+  command = plan
+
+  module {
+    source = "./tests/final"
   }
 
-  assert{
-    condition=data.http.index.status_code==200
-    error_message= "website responding with http status ${data.http.index.status_code}"
+  variables {
+    endpoint = run.create_bucket.website_endpoint
+  }
+
+  assert {
+    condition     = data.http.index.status_code == 200
+    error_message = "Website responded with HTTP status ${data.http.index.status_code}"
   }
 }
