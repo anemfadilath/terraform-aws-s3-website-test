@@ -32,7 +32,7 @@ run "create_bucket" {
 run "website_is_running"{
   command= plan
   module{
-    source= "./tests/final
+    source= "./tests/final"
   }
   variables{
     endpoint= run.create_bucket.website_endpoint
